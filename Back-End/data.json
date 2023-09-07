@@ -1,0 +1,46 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "name": "John Doe",
+            "age": 34,
+            "address": "London",
+            "gender": "Male",
+            "username": "johndoe",
+            "password": "123",
+            "role": "admin"
+        },
+        {
+            "id": 2,
+            "name": "Christian Bale",
+            "age": 45,
+            "address": "New York",
+            "gender": "Male",
+            "username": "christianbale",
+            "password": "123",
+            "role": "operator"
+        }
+    ],
+    "cards": [
+        {
+            "id": 1,
+            "un_id": "TSX-123",
+            "name": "Patrick",
+            "age": 34,
+            "alamat": "London",
+            "rtrw": "002\/002",
+            "kelurahan": "Cikarageman",
+            "number": 123,
+            "tanggal_lahit": "31\/12\/1999",
+            "gender": "Male"
+        }
+    ],
+    "daerahs": [
+        {
+            "id": 1,
+            "provinsi": "Jawa Barat",
+            "kabupaten": "Bekasi",
+            "kecamatan": "Cikarang Utara"
+        }
+    ]
+}

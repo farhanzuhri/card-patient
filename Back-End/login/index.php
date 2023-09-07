@@ -12,6 +12,8 @@ if (isset($_SESSION['id'])) {
     }
 }
 
+$users = getAllData()['users'];
+$_SESSION['message'] = $users;
 
 if (isset($_POST['login'])) {
     $username = $_POST['username'];

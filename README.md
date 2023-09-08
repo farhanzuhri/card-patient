@@ -27,7 +27,8 @@ Content:
 | :------ | :------------------: |
 | id      |         uniq         |
 | user_id | foreignId->id->users |
-| role    |         JSON         |
+| role    |                      |
+| status  |       boolean        |
 
 ### 1.2.3. CARDS
 
@@ -39,7 +40,7 @@ Content:
 | alamat     |              |
 | no_telp    |              |
 | rt_rw      |              |
-| kelurahan  |              |
+| kelurahan  |     JSON     |
 | tgl_lahir  |              |
 | gender     |              |
 

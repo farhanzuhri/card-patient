@@ -19,7 +19,7 @@ if (isset($_POST['login'])) {
     $password = $_POST['password'];
     
     foreach ($users as $user) {
-        if ($user['username'] == $username && $user['password'] == $password) {
+        if (($user['username'] == $username || $user['email'] == $username) && $user['password'] == $password) {
             $_SESSION['id'] = $user['id'];
             $_SESSION['username'] = $user['username'];
             header('Location: /');
@@ -39,8 +39,8 @@ if (isset($_POST['login'])) {
 <body>
     <form action="" method="POST">
         <div class="form-control">
-            <label for="username">Username</label>
-            <input type="text" placeholder="Username" id="username" name="username">
+            <label for="username">Username or Email</label>
+            <input type="text" placeholder="Username or Email" id="username" name="username">
         </div>
         <div class="form-control">
             <label for="password">Password</label>

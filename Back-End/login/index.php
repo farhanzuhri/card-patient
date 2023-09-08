@@ -13,16 +13,15 @@ if (isset($_SESSION['id'])) {
 }
 
 $users = getAllData()['users'];
-$_SESSION['message'] = $users;
 
 if (isset($_POST['login'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
     
     foreach ($users as $user) {
-        // $_SESSION['message'] = ($user['username'] == $username && $user['password'] == $password);
         if ($user['username'] == $username && $user['password'] == $password) {
             $_SESSION['id'] = $user['id'];
+            $_SESSION['username'] = $user['username'];
             header('Location: /');
             break;
         }
@@ -49,6 +48,7 @@ if (isset($_POST['login'])) {
         </div>
         <div class="form-control">
             <button type="submit" name="login">Login</button>
+            <button><a href="/register">Register</a></button>
         </div>
     </form>
 </body>

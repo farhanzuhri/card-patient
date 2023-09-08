@@ -28,11 +28,6 @@ function getDataById($table, $id)
     if (in_array($id, $existingData)) {
         return $data[$table][array_search($id, $existingData)];
     }
-    // foreach ($users as $user) {
-    //     if ($user['id'] == $id) {
-    //         return $user;
-    //     }
-    // }
     return [];
 }
 

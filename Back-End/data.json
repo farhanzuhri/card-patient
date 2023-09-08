@@ -2,23 +2,11 @@
     "users": [
         {
             "id": 1,
-            "name": "John Doe",
-            "age": 34,
-            "address": "London",
-            "gender": "Male",
-            "username": "johndoe",
-            "password": "123",
+            "name": "adnan",
+            "email": "adnan@gmail.com",
+            "username": "adnan",
+            "password": "adnan",
             "role": "admin"
-        },
-        {
-            "id": 2,
-            "name": "Christian Bale",
-            "age": 45,
-            "address": "New York",
-            "gender": "Male",
-            "username": "christianbale",
-            "password": "123",
-            "role": "operator"
         }
     ],
     "cards": [
@@ -31,7 +19,7 @@
             "rtrw": "002\/002",
             "kelurahan": "Cikarageman",
             "number": 123,
-            "tanggal_lahit": "31\/12\/1999",
+            "tanggal_lahir": "31\/12\/1999",
             "gender": "Male"
         }
     ],

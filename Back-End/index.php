@@ -39,8 +39,6 @@ if (isset($_POST['newDaerah'])) {
 <body>
     <?php
         $user = getDataById('users', $_SESSION['id']);
-        // echo "<h1>Hello, " . $user['username'] . "</h1>";
-        // echo "<h1>Role: " . $user['role'] . "</h1>";
         if ($user['role'] == 'admin') {
     ?>
         <h1>ADMIN</h1>

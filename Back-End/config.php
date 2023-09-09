@@ -38,3 +38,47 @@ function getDataByRow($table, $row)
     $existingData = array_column($data[$table], $row);
     return $existingData;
 }
+
+function hitungUmurDenganBulan($tanggal_lahir) {
+    // Pecah tanggal lahir menjadi komponen-komponennya
+    list($hari, $bulan, $tahun) = explode('/', $tanggal_lahir);
+
+    // Dapatkan tanggal saat ini
+    $tanggal_sekarang = date('d/m/Y');
+
+    // Pecah tanggal saat ini menjadi komponen-komponennya
+    list($hari_sekarang, $bulan_sekarang, $tahun_sekarang) = explode('/', $tanggal_sekarang);
+
+    // Hitung umur dalam tahun
+    $umurTahun = $tahun_sekarang - $tahun;
+
+    // Hitung total bulan
+    $umurBulan = $bulan_sekarang - $bulan;
+
+    // Periksa apakah sudah ulang tahun atau belum
+    if ($hari_sekarang < $hari) {
+        $umurBulan--;
+    }
+
+    // Jika hasil total bulan negatif, tambahkan 12 bulan
+    if ($umurBulan < 0) {
+        $umurBulan += 12;
+        $umurTahun--;
+    }
+
+    return ['tahun' => $umurTahun, 'bulan' => $umurBulan];
+}
+
+function generateUniqueId($length = 10) {
+    $characters = '0123456789';
+    $result = '';
+
+    for ($i = 0; $i < $length; $i++) {
+        $result .= $characters[mt_rand(0, strlen($characters) - 1)];
+    }
+
+    return $result;
+}
+
+$uniqueId = generateUniqueId();
+

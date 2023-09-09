@@ -6,24 +6,26 @@
             "email": "adnan@gmail.com",
             "username": "adnan",
             "password": "adnan",
-            "role": "admin"
+            "role": "operator"
         }
     ],
     "cards": [
         {
-            "id": 1,
-            "un_id": "TSX-123",
-            "name": "Patrick",
-            "age": 34,
-            "alamat": "London",
+            "patient_id": "TSX-506046594367974005131536877679",
+            "name": "Adnan",
+            "alamat": "Kp Tanah Baru",
+            "city": [
+                "Jawa Barat",
+                "Bekasi",
+                "Cikarang Utara"
+            ],
+            "number": "085156803524",
             "rtrw": "002\/002",
-            "kelurahan": "Cikarageman",
-            "number": 123,
-            "tanggal_lahir": "31\/12\/1999",
+            "tanggal_lahir": "31\/12\/2003",
             "gender": "Male"
         }
     ],
-    "daerahs": [
+    "citys": [
         {
             "id": 1,
             "provinsi": "Jawa Barat",

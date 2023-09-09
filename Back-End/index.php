@@ -19,7 +19,7 @@ if (isset($_POST['newDaerah'])) {
     $kecamatan = $_POST['kecamatan'];
     $data = getAllData();
 
-    $data['daerahs'][] = [
+    $data['citys'][] = [
         'provinsi' => $provinsi,
         'kabupaten' => $kabupaten,
         'kecamatan' => $kecamatan
@@ -28,18 +28,46 @@ if (isset($_POST['newDaerah'])) {
     header('Location: /');
 }
 
+if (isset($_POST['newPatient'])) {
+    // unique patient_id with start TSX-
+    $patient_id = 'TSX-' . generateUniqueId();
+    $name = $_POST['nama'];
+    $alamat = $_POST['alamat'];
+    $city = [$_POST['provinsi'], $_POST['kabupaten'], $_POST['kecamatan']];
+    $number = $_POST['number'];
+    $rtrw = $_POST['rtrw'];
+    $tanggal_lahir = $_POST['tanggal_lahir'];
+    $gender = $_POST['gender'];
+    $data = getAllData();
+    $data['cards'][] = [
+        'patient_id' => $patient_id,
+        'name' => $name,
+        'alamat' => $alamat,
+        'city' => $city,
+        'number' => $number,
+        'rtrw' => $rtrw,
+        'tanggal_lahir' => $tanggal_lahir,
+        'gender' => $gender
+    ];
+
+    putData($data);
+    header('Location: /cards?id=' . $patient_id);
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HOME</title>
 </head>
+
 <body>
     <?php
-        $user = getDataById('users', $_SESSION['id']);
-        if ($user['role'] == 'admin') {
+    $user = getDataById('users', $_SESSION['id']);
+    if ($user['role'] == 'admin') {
     ?>
         <h1>ADMIN</h1>
         <p>Form Daerah</p>
@@ -78,28 +106,28 @@ if (isset($_POST['newDaerah'])) {
                 <label for="provinsi">Provinsi</label>
                 <select name="provinsi" id="provinsi">
                     <?php
-                        $provinsi = getDataByRow('daerahs', 'provinsi');
-                        foreach ($provinsi as $k) {
-                            echo "<option value='" . $k . "'>" . $k . "</option>";
-                        }
+                    $provinsi = getDataByRow('citys', 'provinsi');
+                    foreach ($provinsi as $k) {
+                        echo "<option value='" . $k . "'>" . $k . "</option>";
+                    }
                     ?>
                 </select>
                 <label for="kabupaten">Kabupaten</label>
                 <select name="kabupaten" id="kabupaten">
                     <?php
-                        $kabupaten = getDataByRow('daerahs', 'kabupaten');
-                        foreach ($kabupaten as $k) {
-                            echo "<option value='" . $k . "'>" . $k . "</option>";
-                        }
+                    $kabupaten = getDataByRow('citys', 'kabupaten');
+                    foreach ($kabupaten as $k) {
+                        echo "<option value='" . $k . "'>" . $k . "</option>";
+                    }
                     ?>
                 </select>
                 <label for="kecamatan">Kecamatan</label>
                 <select name="kecamatan" id="kecamatan">
                     <?php
-                        $kecamatan = getDataByRow('daerahs', 'kecamatan');
-                        foreach ($kecamatan as $k) {
-                            echo "<option value='" . $k . "'>" . $k . "</option>";
-                        }
+                    $kecamatan = getDataByRow('citys', 'kecamatan');
+                    foreach ($kecamatan as $k) {
+                        echo "<option value='" . $k . "'>" . $k . "</option>";
+                    }
                     ?>
                 </select>
             </div>
@@ -112,8 +140,8 @@ if (isset($_POST['newDaerah'])) {
                 <input type="text" placeholder="RT / RW" id="rtrw" name="rtrw">
             </div>
             <div class="form-control">
-                <label for="tglLahir">Tanggal Lahir</label>
-                <input type="text" placeholder="Tanggal Lahir" id="tglLahir" name="tglLahir">
+                <label for="tanggal_lahir">Tanggal Lahir</label>
+                <input type="text" placeholder="Tanggal Lahir" id="tanggal_lahir" name="tanggal_lahir">
             </div>
             <div class="form-control">
                 <label for="gender">Jenis Kelamin</label>
@@ -132,4 +160,5 @@ if (isset($_POST['newDaerah'])) {
         <button type="submit" name="logout">Logout</button>
     </form>
 </body>
+
 </html>
